@@ -1,11 +1,15 @@
 /* eslint valid-jsdoc: "off" */
 
 'use strict';
+const path = require('path');
 
 /**
  * @param {Egg.EggAppInfo} appInfo app info
  */
+
+
 module.exports = appInfo => {
+  let loggerPath = path.resolve(appInfo.baseDir, 'logs');
   /**
    * built-in config
    * @type {Egg.EggAppConfig}
@@ -32,6 +36,11 @@ module.exports = appInfo => {
         port: 50008,
       },
     },
+    customLogger:{
+      request: {
+        file: path.join(loggerPath, 'request.log'),
+      },
+    }
   };
 
   return {
