@@ -27,7 +27,7 @@ module.exports = appInfo => {
     // myAppName: 'egg',
     static: {
       prefix: '/h5/',
-      dir: '../icloudstatic/',
+      dir: '../static/',
       buffer: false,
       maxAge: 0,
     },
