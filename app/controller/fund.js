@@ -19,8 +19,11 @@ class FundController extends Controller {
 
     const command = `cd static/fundQDII/ && git pull`
     const { stdout, stderr } = await exec2(command);
-
-    ctx.body = stdout
+    const out = {
+      ...stdout,
+      ...stderr
+    }
+    ctx.body = out 
     console.log('stdout:', stdout);
     console.log('stderr:', stderr);
 
@@ -37,8 +40,9 @@ class FundController extends Controller {
   }
   async list(){
     const { ctx } = this;
-    // const path = '/root/static/fundQDII/data/'
-    const path  = '/Library/WebServer/www/fundQDII/data/'
+    const path = '/root/static/fundQDII/data/'
+    /* test path */
+    // const path  = '/Library/WebServer/www/fundQDII/data/'
 /* 
 
 */
