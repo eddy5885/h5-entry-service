@@ -2,6 +2,7 @@
 
 'use strict';
 const path = require('path');
+const fs = require('fs');
 
 /**
  * @param {Egg.EggAppInfo} appInfo app info
@@ -22,6 +23,9 @@ module.exports = appInfo => {
   // add your middleware config here
   config.middleware = [];
 
+  config.siteFile = {
+    '/favicon.ico':fs.readFileSync(path.resolve(__dirname,'../images/favicon.png'))
+  }
   // add your user config here
   const userConfig = {
     // myAppName: 'egg',

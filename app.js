@@ -10,13 +10,13 @@ class AppBootHook {
 
     this.app.config.coreMiddleware.unshift('accesslog');
 
-    this.app.use(async (ctx, next) => {
-      if (ctx.req.url === '/favicon.ico') {
-        ctx.status = 204;
-      } else {
-        await next();
-      }
-    });
+    // this.app.use(async (ctx, next) => {
+    //   if (ctx.req.url === '/favicon.ico') {
+    //     // ctx.status = 204;
+    //   } else {
+    //     await next();
+    //   }
+    // });
   }
 
   async didLoad() {
