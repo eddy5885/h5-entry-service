@@ -86,7 +86,7 @@ class FundController extends Controller {
         `
       }
       html+='</p>'
-      ctx.body = html;
+      ctx.body = `<div style="font-size:14px;">${html}</div>`;
     }catch(e){
       ctx.body = '目录查找失败'
     }
