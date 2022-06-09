@@ -9,5 +9,6 @@ module.exports = app => {
   router.get('/api/test', controller.home.test);
   router.get('/fundlist', controller.fund.list);
   router.get('/fundfresh', controller.fund.fresh);
+  router.get('/log', controller.log.index);
 
 };

@@ -44,6 +44,9 @@ module.exports = appInfo => {
       request: {
         file: path.join(loggerPath, 'request.log'),
       },
+      diy: {
+        file: path.join(loggerPath, 'diy.log'),
+      },
     }
   };
 

@@ -63,8 +63,8 @@ class FundController extends Controller {
 
     const urlP = 'https://sixue.work/static/fundQDII/data/'
     try{
-      let p = '<p>天天基金数据：<br />'
-      p += ''
+      let p = '<p>天天基金数据：</p>'
+      p += '<p>'
       for(let i in type){
         p += `
         <a href="${type[i]['url']}" target="_blank">${type[i]['n']}</a> &nbsp;
@@ -78,14 +78,15 @@ class FundController extends Controller {
       })
       console.log(dir,'list')
   
-      let html  =  p + '</p><p>过滤后数据：<br />'
+      let html  =  p + '</p>'+'<p>过滤后数据：</p>'
+      html = html + '<ul id="list">'
       for(let i in dir){
         const n = dir[i]
-        html += `
-        ${this.toName(n)}: <a href="${urlP}${dir[i]}" target="_blank">${n}</a><br />
+        html += `<li>
+        ${this.toName(n)}: <a data-dateid="${n}" href="${urlP}${dir[i]}" target="_blank">${n}</a></li>
         `
       }
-      html+='</p>'
+      html+='</ul>'
       ctx.body = html;
     }catch(e){
       ctx.body = '目录查找失败'
